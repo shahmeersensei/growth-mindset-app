@@ -74,7 +74,7 @@ if menu == "Sign Up":
 
             st.session_state.user = user
             st.success("✅ Sign-up successful! Please log in.")
-            st.experimental_rerun()
+            st.rerun()
         except Exception as e:
             st.error(f"❌ Error: {str(e)}")
 
@@ -89,7 +89,7 @@ if menu == "Login":
             user = auth.sign_in_with_email_and_password(email, password)
             st.session_state.user = user
             st.success(f"🎉 Welcome back, {email}!")
-            st.experimental_rerun()
+            st.rerun()
         except Exception as e:
             st.error(f"❌ Error: {str(e)}")
 
@@ -105,7 +105,7 @@ if st.session_state.user:
     if st.sidebar.button("🚪 Logout"):
         st.session_state.user = None
         st.session_state.user_data = None
-        st.experimental_rerun()
+        st.rerun()
 
     # --- Fetch User Data Efficiently ---
     if st.session_state.user_data is None:
